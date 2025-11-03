@@ -21,7 +21,7 @@ struct Node *insertAtFront(struct Node *head, int x)
     return newNode;
 }
 int main(){
-    struct Node *head=NULL,*temp=NULL,*newNode=NULL;
+    struct Node *head=NULL,*temp=NULL,*newNode=NULL,*tail=NULL;
     int i,value,n;
     scanf("%d",&n);
     for(int i=0;i<n;i++){

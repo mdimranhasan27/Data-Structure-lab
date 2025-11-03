@@ -11,11 +11,6 @@ void insert_sorted(struct Node **head,int target){
     struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
     newNode->data=target;
     newNode->next=NULL;
-    if(*head==NULL){
-        newNode->next = *head;
-        *head = newNode;
-    }
-    else{
     while(ptr!=NULL){
         if(ptr->data>=target) {
             newNode->next = ptr;
@@ -24,7 +19,6 @@ void insert_sorted(struct Node **head,int target){
         }
         pvr=ptr;
         ptr=ptr->next;
-    }
 }
     if(ptr==NULL){
         pvr->next=newNode;

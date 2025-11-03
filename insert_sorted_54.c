@@ -3,28 +3,28 @@
 #include <string.h>
 
 struct Node {
-    char data[100];
+    char data;
     struct Node *next;
 };
 
 void Traverse(struct Node *head) {
     struct Node *ptr = head;
     while (ptr != NULL) {
-        printf("%s ", ptr->data);
+        printf("%d ", ptr->data);
         ptr = ptr->next;
     }
     printf("\n");
 }
 
-struct Node *add_faruk(struct Node *head, char s[100]) {
+struct Node *add_faruk(struct Node *head, int s) {
     struct Node *ptr = head;
     struct Node *pvr = NULL;
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    strcpy(newNode->data, s);
+    newNode->data= s;
     newNode->next = NULL;
 
     while (ptr != NULL) {
-        if (strcmp(ptr->data, s) > 0) {
+        if (ptr->data> s) {
             if (pvr == NULL) { // insert at head
                 newNode->next = head;
                 head = newNode;
@@ -48,12 +48,12 @@ int main() {
     struct Node *head = NULL, *temp = NULL, *newNode = NULL;
     int n;
     scanf("%d", &n);
-    char str[100];
+    int str;
 
     for (int i = 0; i < n; i++) {
-        scanf("%s", str);
+        scanf("%d", &str);
         newNode = (struct Node *)malloc(sizeof(struct Node));
-        strcpy(newNode->data, str);
+        newNode->data=str;
         newNode->next = NULL;
         if (head == NULL) {
             head = newNode;
@@ -67,11 +67,21 @@ int main() {
     printf("Original list:\n");
     Traverse(head);
 
-    printf("Enter a string to insert:\n");
-    scanf("%s", str);
+    printf("Enter a number to insert:\n");
+    scanf("%d", &str);
     head = add_faruk(head, str);
 
     printf("After insertion:\n");
+    Traverse(head);
+    printf("How many element do you want to add :\n");
+    int f;
+    scanf("%d",&f);
+    for(int i=0;i<f;i++){
+        scanf("%d", &str);
+        head = add_faruk(head, str);
+    
+    }
+    printf("After inserting %d element .\n",f);
     Traverse(head);
 
     return 0;
