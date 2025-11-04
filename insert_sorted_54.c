@@ -2,33 +2,42 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct Node {
+struct Node
+{
     char data;
     struct Node *next;
 };
 
-void Traverse(struct Node *head) {
+void Traverse(struct Node *head)
+{
     struct Node *ptr = head;
-    while (ptr != NULL) {
+    while (ptr != NULL)
+    {
         printf("%d ", ptr->data);
         ptr = ptr->next;
     }
     printf("\n");
 }
 
-struct Node *add_faruk(struct Node *head, int s) {
+struct Node *add_faruk(struct Node *head, int s)
+{
     struct Node *ptr = head;
     struct Node *pvr = NULL;
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->data= s;
+    newNode->data = s;
     newNode->next = NULL;
 
-    while (ptr != NULL) {
-        if (ptr->data> s) {
-            if (pvr == NULL) { // insert at head
+    while (ptr != NULL)
+    {
+        if (ptr->data > s)
+        {
+            if (pvr == NULL)
+            { // insert at head
                 newNode->next = head;
                 head = newNode;
-            } else { // insert between pvr and ptr
+            }
+            else
+            { // insert between pvr and ptr
                 pvr->next = newNode;
                 newNode->next = ptr;
             }
@@ -38,27 +47,34 @@ struct Node *add_faruk(struct Node *head, int s) {
         ptr = ptr->next;
     }
     // insert at end if not inserted yet
-    if (pvr == NULL) head = newNode; 
-    else pvr->next = newNode;
+    if (pvr == NULL)
+        head = newNode;
+    else
+        pvr->next = newNode;
 
     return head;
 }
 
-int main() {
+int main()
+{
     struct Node *head = NULL, *temp = NULL, *newNode = NULL;
     int n;
     scanf("%d", &n);
     int str;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         scanf("%d", &str);
         newNode = (struct Node *)malloc(sizeof(struct Node));
-        newNode->data=str;
+        newNode->data = str;
         newNode->next = NULL;
-        if (head == NULL) {
+        if (head == NULL)
+        {
             head = newNode;
             temp = head;
-        } else {
+        }
+        else
+        {
             temp->next = newNode;
             temp = temp->next;
         }
@@ -75,13 +91,13 @@ int main() {
     Traverse(head);
     printf("How many element do you want to add :\n");
     int f;
-    scanf("%d",&f);
-    for(int i=0;i<f;i++){
+    scanf("%d", &f);
+    for (int i = 0; i < f; i++)
+    {
         scanf("%d", &str);
         head = add_faruk(head, str);
-    
     }
-    printf("After inserting %d element .\n",f);
+    printf("After inserting %d element .\n", f);
     Traverse(head);
 
     return 0;
