@@ -2,4 +2,5 @@
 !*.c
 !*.cpp
 !.gitignore
-!*Hashing/.c
+!**/*.c
+!**/*.cpp
