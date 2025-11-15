@@ -1,6 +1,16 @@
+# Ignore everything
 *
+
+# Don’t ignore .c and .cpp files in any folder
 !*.c
 !*.cpp
+
+# Don’t ignore .gitignore itself
 !.gitignore
-!**/*.c
-!**/*.cpp
+
+# In Hashing folder: ignore everything...
+Hashing/*
+
+# ...but allow .c and .cpp files inside Hashing
+!Hashing/*.c
+!Hashing/*.cpp
