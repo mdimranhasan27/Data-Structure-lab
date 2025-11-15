@@ -21,6 +21,8 @@ void Traverse(struct Node *head){
 }
 
 
+
+
 int main(){
      struct Node *head =NULL, *Temp=NULL,*newNode = NULL,*Tail=NULL;
      int i,n,value;
