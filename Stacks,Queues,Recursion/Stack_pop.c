@@ -6,16 +6,16 @@ void push(int item)
 {
     if (top == MAX - 1)
     {
-        printf("Overflow");
+        printf("Overflow ");
         return;
     }
-    Stack[++top];
+    Stack[++top]=item;
 }
 int Pop()
 {
     if (top == -1)
     {
-        printf("Undeflow");
+        printf("Undeflow ");
         return -1;
     }
     return Stack[top--];
@@ -28,6 +28,13 @@ int main()
     push(14);
     push(16);
     push(18);
+
     printf("Pop Element : %d\n", Pop());
+    printf("Pop Element : %d\n", Pop());
+    printf("Pop Element : %d\n", Pop());
+    printf("Pop Element : %d\n", Pop());
+    printf("Pop Element : %d\n", Pop());
+    printf("Pop Element : %d\n", Pop());
+
     return 0;
 }
