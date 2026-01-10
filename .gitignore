@@ -1,5 +1,12 @@
-# Ignore everything except .c and .cpp files
+# Ignore everything
 *
+
+# Don't ignore directories (so Git can traverse into them)
+!*/
+
+# Don't ignore .c and .cpp files in any folder
 !*.c
 !*.cpp
+
+# Don't ignore .gitignore itself
 !.gitignore
