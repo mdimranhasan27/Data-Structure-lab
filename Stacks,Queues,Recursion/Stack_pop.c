@@ -36,5 +36,7 @@ int main()
     printf("Pop Element : %d\n", Pop());
     printf("Pop Element : %d\n", Pop());
 
+    
+
     return 0;
 }
