@@ -1,22 +1,33 @@
-#include<stdio.h>
+#include <stdio.h>
 #define MAX 10
 int Stack[MAX];
-int top=-1;
-void push(int item){
-    if(top==MAX-1){
+int top = -1;
+void push(int item)
+{
+    if (top == MAX - 1)
+    {
         printf("Overflow");
         return;
     }
     Stack[++top];
 }
-void pop(){
-    if(top==-1){
+int Pop()
+{
+    if (top == -1)
+    {
         printf("Undeflow");
         return -1;
     }
-    Stack[top--];
+    return Stack[top--];
 }
 
-int main(){
+int main()
+{
+    push(10);
+    push(12);
+    push(14);
+    push(16);
+    push(18);
+    printf("Pop Element : %d\n", Pop());
     return 0;
 }
