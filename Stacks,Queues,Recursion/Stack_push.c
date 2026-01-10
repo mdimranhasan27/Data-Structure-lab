@@ -12,6 +12,7 @@ void push(int item)
     }
     top++;
     Stack[top] = item;
+    
 }
 int main()
 {
